@@ -1,8 +1,8 @@
-# helloworld
+# Tosscoin
 
-AstrBot 插件模板
+AstrBot 插件
 
-A template plugin for AstrBot plugin feature
+唤醒指令：/抛硬币
 
 # 支持
 
