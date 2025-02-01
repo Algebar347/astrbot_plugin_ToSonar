@@ -1,4 +1,5 @@
-from astrbot.api.all import *
+from astrbot.api.event import filter, AstrMessageEvent, MessageEventResult
+from astrbot.api.star import Context, Star, register
 import random
 from aiocqhttp import CQHttp
 
