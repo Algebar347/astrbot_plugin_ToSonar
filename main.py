@@ -31,4 +31,5 @@ class MyPlugin(Star):
             group_id = event.message_obj.group_id
             user_id = event.get_sender_id()
             member_info = await self.get_group_member_info(group_id, user_id)
-            yield event.plain_result(member_info)
+            member_info_text =str(member_info)
+            yield event.plain_result(member_info_text)
