@@ -32,10 +32,9 @@ class MyPlugin(Star):
             user_name = member_card if member_card else event.get_sender_name()
         else:
             user_name = event.get_sender_name()
-            group_id = event.get_sender_id()
         outcomes = ["正面", "反面", "立起来了！"]
         weights = [0.497, 0.497, 0.006]  # 49.7% + 49.7% + 0.6% = 100%
         result = random.choices(outcomes, weights=weights)[0]
         if result == "立起来了！":
-            await event.plain_result(f"{user_name}抛出一枚硬币，震惊地看着它稳稳地立在了桌子上——这是什么鬼？")
-        yield event.plain_result(f"刹那间，{user_name}的硬币在第{group_id}维空间表现出——\n{result}的绝对真实！")
+            await event.plain_result(f"{user_name}抛出一枚硬币，震惊地看着它稳稳地立在了桌子上！Sonar欢呼着给日历上的今天盖上了幸运戳ᕕ(ᐛ)ᕗ")
+        yield event.plain_result(f"刹那间，{user_name}的硬币在希尔伯特空间表现出——\n{result}的绝对真实！")
