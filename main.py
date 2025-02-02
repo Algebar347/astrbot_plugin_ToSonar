@@ -4,7 +4,7 @@ from astrbot.core.platform.message_type import MessageType
 import random
 from aiocqhttp import CQHttp
 
-@register("astrbot_plugin_", "Esther", "一个简单的赛博抛硬币插件", "1.0.0")
+@register("astrbot_plugin_", "Esther", "一个简单的赛博抛硬币插件", "1.0.0","https://github.com/Algebar347/astrbot_plugin_ToSonar")
 class MyPlugin(Star):
     def __init__(self, context: Context):
         super().__init__(context)
@@ -38,3 +38,20 @@ class MyPlugin(Star):
         if result == "立起来了！":
             await event.plain_result(f"{user_name}抛出一枚硬币，震惊地看着它稳稳地立在了桌子上！Sonar欢呼着给日历上的今天盖上了幸运戳ᕕ(ᐛ)ᕗ")
         yield event.plain_result(f"刹那间，{user_name}的硬币在希尔伯特空间表现出——\n{result}的绝对真实！")
+    
+    # 自定义的 Jinja2 模板，支持 CSS
+TMPL = '''
+    <div style="font-size: 64px;"> 
+    <h1 style="color: black">Test</h1>
+
+    <ul>
+    {% for item in items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </div>
+    '''
+
+@filter.command("test")
+async def quote(self, event: AstrMessageEvent):
+    url = await self.html_render(TMPL, {"items": ["男的滚", "祥黑滚", "玩原神的滚"]}) # 第二个参数是 Jinja2 的渲染数据
+    yield event.image_result(url)
